@@ -20,17 +20,10 @@ A análise foi feita utilizando as capacidades de processamento distribuído do 
 A organização do projeto está estruturada em pastas e arquivos que atendem diferentes necessidades, desde a análise de logs, configurações de contêineres até testes unitários. Abaixo está uma visão geral da estrutura do projeto:
 
 ```bash 
-├── logs/
-│   ├── __pycache__/             # Cache do Python gerado automaticamente
-│   ├── access_log.txt           # Arquivo de log principal utilizado na análise
-│   ├── test_access_log.txt      # Arquivo de log de teste utilizado nos testes
 ├── src/
 │   ├── bd_connection.py         # Script responsável por interações com o banco de dados
 │   ├── processed_logs.csv       # Saída processada dos logs em formato CSV
 │   ├── test_unitario.py         # Testes unitários para validar o código
-├── .dockerignore                # Arquivos a serem ignorados no contexto Docker
-├── .gitattributes               # Configurações de atributos Git
-├── .gitignore                   # Arquivos e pastas a serem ignorados pelo Git
 ├── docker-compose.yml           # Configuração para orquestrar contêineres Docker
 ├── Dockerfile                   # Configuração para criar a imagem Docker do projeto
 ├── LICENSE                      # Licença do projeto
@@ -38,8 +31,11 @@ A organização do projeto está estruturada em pastas e arquivos que atendem di
 ├── requirements.txt             # Dependências Python necessárias para o projeto
 ├── run_all.py                   # Script principal para executar todo o pipeline do projeto
 ```
+
 ## Códigos no Diretório src/
-Primeiro, baixe o data `access_log.txt` no [drive](https://drive.google.com/drive/folders/1CM1Dd9e5SRDFfdrwM4fM1vdwVqXJtHOV?usp=sharing) 
+
+Primeiro, faça o download do arquivo `access_log.txt` disponível neste [link](https://drive.google.com/drive/folders/1CM1Dd9e5SRDFfdrwM4fM1vdwVqXJtHOV?usp=sharing) do Google Drive e mova-o para a pasta `src`.
+
 #### acess_log.py
 
 Este código contém a lógica principal para processar os logs brutos (access_log.txt).
