@@ -1,4 +1,4 @@
-# **Análise de Logs Web com Apache Spark**
+## **Análise de Logs Web com Apache Spark**
 Este projeto foi desenvolvido como parte de um desafio para a análise de logs de acesso a servidores web utilizando o framework Apache Spark. O objetivo principal é processar e extrair informações valiosas a partir de dados de log no formato Web Server Access Log, auxiliando a empresa a monitorar a performance do sistema, identificar padrões de uso e detectar possíveis problemas de segurança.
 
 A análise foi feita utilizando as capacidades de processamento distribuído do Apache Spark para manipular e responder às perguntas definidas no desafio. As respostas foram geradas com base em um arquivo de log contendo registros de vários dias de acessos ao servidor.
@@ -14,7 +14,6 @@ A análise foi feita utilizando as capacidades de processamento distribuído do 
    - O maior volume de dados em uma única resposta.
    - O menor volume de dados em uma única resposta.
    - O volume médio de dados retornado.
-   - *Dica:* Considere como os dados podem ser categorizados por tipo de resposta para realizar essas análises.
 6. **Qual o dia da semana com o maior número de erros do tipo "HTTP Client Error"?**
 
 ## Estrutura do Projeto
@@ -75,14 +74,51 @@ Dados no Banco de dados:
 ![Texto alternativo]("C:/Users/anna.b.pereira.lima/Downloads/WhatsApp Image 2024-12-30 at 18.49.41.jpeg")
 
 
+### Configurando o Banco de Dados
+Antes de rodar os códigos, é necessário que ajuste as informações de conexão no arquivo Python bd_connection.py, para que funcione e conecte com o banco de dados PostgreSQL. Caso você ainda não possua um banco de dados configurado, siga as etapas abaixo:
+
+#### Crie uma conta no Aiven:
+* Acesse o site oficial do [Aiven](https://aiven.io/ "Título opcional").
+* Crie uma conta e configure um novo banco de dados PostgreSQL seguindo as instruções fornecidas pelo Aiven.
+
+#### Obtenha as credenciais de conexão:
+Após criar o banco de dados, copie as informações de conexão, incluindo:
+
+* Host
+* Porta
+* Nome do banco de dados
+* Usuário
+* Senha
+* SSL mode
+
+#### Configure no projeto:
+Substitua os valores de conexão no arquivo de configuração bd_connection.py.
+```python
+def get_db_config():
+    return psycopg2.connect(
+        host="********",
+        port="********",
+        dbname="**********",
+        user="*****",
+        password="*****",
+        sslmode="*******"
+    )
+```
+
+#### Conecte ao PGAdmin:
+Utilize o PGAdmin para gerenciar o banco de dados.
+Configure uma nova conexão no PGAdmin utilizando as credenciais do banco criadas no Aiven.
+Verifique se a conexão foi estabelecida com sucesso e se o banco está acessível.
+
+
+Ao concluir essas etapas, o banco de dados estará pronto para armazenar os resultados processados pela análise de logs. Se surgir qualquer dúvida durante o processo, consulte a documentação oficial do Aiven e do PGAdmin ou entre em contato com as equipes de suporte.
+
 #### run_all.py
 
 Script principal que orquestra a execução de todo o pipeline.
 Ele é feito, para quando criar toda a execução com o docker, chamar todos os scripts em python.
 
 ## Execução com Docker
-
-Execução com Docker
 
 O projeto foi configurado para ser executado em contêineres Docker, facilitando a reprodução do ambiente e garantindo consistência entre diferentes sistemas. Siga os passos abaixo para executar os arquivos utilizando Docker:
 
@@ -127,8 +163,8 @@ Use o arquivo docker-compose.yml para iniciar o ambiente completo:
 ```cmd
 docker-compose up
 ```
+Utilizando o docker-compose up além dele inicar os conteiners, ele vai utilizar o script do arquivo run_all.py para rodar o projeto automaticamente, além de imprimir já no terminal o retorno das respostas do acess_log.py, os testes do arquivo de teste unitário e o processo de banco de dados. 
 
-## Resultados
 ```cmd
 PS C:\Users\anna.b.pereira.lima\Downloads\Project_acess_log\Project_acess_log> docker-compose up
 [+] Running 1/1
@@ -142,6 +178,10 @@ analiselog-1  | spark 20:30:06.67 INFO  ==>
 analiselog-1  |                                                                                                                 
 analiselog-1  | Executando src/acess_log.py...   
 ```
+
+## Resultados
+
+Abaixo tem os resultados obtidos e que devem aparecer em seu terminal, quando for rodar todos os arquivos, respondendo 
 
 ``` cmd
 analiselog-1  | Saída de src/acess_log.py:
