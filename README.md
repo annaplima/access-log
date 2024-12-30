@@ -1,4 +1,4 @@
-## **Análise de Logs Web com Apache Spark**
+# **Análise de Logs Web com Apache Spark**
 Este projeto foi desenvolvido como parte de um desafio para a análise de logs de acesso a servidores web utilizando o framework Apache Spark. O objetivo principal é processar e extrair informações valiosas a partir de dados de log no formato Web Server Access Log, auxiliando a empresa a monitorar a performance do sistema, identificar padrões de uso e detectar possíveis problemas de segurança.
 
 A análise foi feita utilizando as capacidades de processamento distribuído do Apache Spark para manipular e responder às perguntas definidas no desafio. As respostas foram geradas com base em um arquivo de log contendo registros de vários dias de acessos ao servidor.
