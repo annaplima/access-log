@@ -24,9 +24,9 @@ A organização do projeto está estruturada em pastas e arquivos que atendem di
 │   ├── bd_connection.py         # Script responsável por interações com o banco de dados
 │   ├── acess_log.py             # Arquivo python que processa e analisa os Logs Web Server
 │   ├── test_unitario.py         # Testes unitários para validar o código
-|   ├── access_log.txt           # Arquivo com os Logs Web Server
-|   ├── test_acess_log.txt       # Arquivo de teste para rodar o teste unitário
-|   ├── processed_logs.csv       # Arquivo extraído no código acess_log.py para utilizar no BD.
+│   ├── access_log.txt           # Arquivo com os Logs Web Server
+│   ├── test_acess_log.txt       # Arquivo de teste para rodar o teste unitário
+│   ├── processed_logs.csv       # Arquivo extraído no código acess_log.py para utilizar no BD.
 ├── docker-compose.yml           # Configuração para orquestrar contêineres Docker
 ├── Dockerfile                   # Configuração para criar a imagem Docker do projeto
 ├── LICENSE                      # Licença do projeto
