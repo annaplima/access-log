@@ -22,8 +22,11 @@ A organização do projeto está estruturada em pastas e arquivos que atendem di
 ```bash 
 ├── src/
 │   ├── bd_connection.py         # Script responsável por interações com o banco de dados
-│   ├── processed_logs.csv       # Saída processada dos logs em formato CSV
+│   ├── acess_log.py             # Arquivo python que processa e analisa os Logs Web Server
 │   ├── test_unitario.py         # Testes unitários para validar o código
+|   ├── access_log.txt           # Arquivo com os Logs Web Server
+|   ├── test_acess_log.txt       # Arquivo de teste para rodar o teste unitário
+|   ├── processed_logs.csv       # Arquivo extraído no código acess_log.py para utilizar no BD.
 ├── docker-compose.yml           # Configuração para orquestrar contêineres Docker
 ├── Dockerfile                   # Configuração para criar a imagem Docker do projeto
 ├── LICENSE                      # Licença do projeto
@@ -34,7 +37,7 @@ A organização do projeto está estruturada em pastas e arquivos que atendem di
 
 ## Códigos no Diretório src/
 
-Primeiro, faça o download do arquivo `access_log.txt` disponível neste [link](https://drive.google.com/drive/folders/1CM1Dd9e5SRDFfdrwM4fM1vdwVqXJtHOV?usp=sharing) do Google Drive e mova-o para a pasta `src`.
+Primeiro, faça o download do arquivo `access_log.txt` e `test_acess_log.txt` disponível neste [link](https://drive.google.com/drive/folders/1CM1Dd9e5SRDFfdrwM4fM1vdwVqXJtHOV?usp=sharing) do Google Drive e mova-o para a pasta `src`.
 
 #### acess_log.py
 
@@ -43,7 +46,8 @@ Ele inclui:
 * A leitura e a limpeza dos dados de log.
 * Processamento dos logs com o Apache Spark.
 * Transformações e cálculos para responder às perguntas do desafio.
-* Exportação dos resultados para o arquivo processed_logs.csv.
+* Exportação dos resultados para o arquivo processed_logs.csv para utilizar no código bd_connection.py, será salvo na pasta `src`
+
 
 
 #### test_unitario.py
@@ -67,7 +71,9 @@ Para o armazenamento dos resultados processados, foi utilizado o PostgreSQL, um 
 O PostgreSQL foi escolhido por ser uma ferramenta já familiar, baseada em experiências anteriores bem-sucedidas, e por suas reconhecidas capacidades para armazenar e gerenciar grandes volumes de dados de forma eficiente. Sua robustez e desempenho tornam-no ideal para aplicações que exigem alta confiabilidade e escalabilidade.
 
 Dados no Banco de dados:
-![Texto alternativo]("C:/Users/anna.b.pereira.lima/Downloads/WhatsApp Image 2024-12-30 at 18.49.41.jpeg")
+
+![WhatsApp Image 2024-12-30 at 19 33 50_5406abea](https://github.com/user-attachments/assets/7616d392-9427-4349-ba91-865a65e0511d)
+
 
 
 ### Configurando o Banco de Dados
@@ -115,6 +121,8 @@ Script principal que orquestra a execução de todo o pipeline.
 Ele é feito, para quando criar toda a execução com o docker, chamar todos os scripts em python.
 
 ## Execução com Docker
+
+![WhatsApp Image 2024-12-30 at 19 33 42_4d3821bd](https://github.com/user-attachments/assets/9bb82325-3107-45e5-954a-1c78eba7d4d7)
 
 O projeto foi configurado para ser executado em contêineres Docker, facilitando a reprodução do ambiente e garantindo consistência entre diferentes sistemas. Siga os passos abaixo para executar os arquivos utilizando Docker:
 
