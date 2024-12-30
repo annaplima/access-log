@@ -39,7 +39,7 @@ A organização do projeto está estruturada em pastas e arquivos que atendem di
 ├── run_all.py                   # Script principal para executar todo o pipeline do projeto
 ```
 ## Códigos no Diretório src/
-
+Primeiro, baixe o data `access_log.txt` no [drive](https://drive.google.com/drive/folders/1CM1Dd9e5SRDFfdrwM4fM1vdwVqXJtHOV?usp=sharing) 
 #### acess_log.py
 
 Este código contém a lógica principal para processar os logs brutos (access_log.txt).
