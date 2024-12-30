@@ -1,0 +1,14 @@
+services:
+  analiselog:
+    image: analiselog
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./logs:/app/logs
+      - ./src:/app/src  # Adicionar o volume para a pasta src
+    environment:
+      - SPARK_MODE=master
+    command: python /app/run_all.py
